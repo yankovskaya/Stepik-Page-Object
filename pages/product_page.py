@@ -7,4 +7,4 @@ class ProductPage(BasePage):
 
         def check_product_name_and_price(self):
             print("'{}' added to cart!".format(self.browser.find_element(*ProductPageLocators.PRODUCT_NAME).text))
-            assert self.browser.find_element(*ProductPageLocators.PRODUCT_PRICE).text in self.browser.find_element(*ProductPageLocators.PRICE_IN_CART).text
+            assert self.browser.find_element(*ProductPageLocators.PRODUCT_PRICE).text in self.browser.find_element(*ProductPageLocators.PRICE_IN_BASKET).text
