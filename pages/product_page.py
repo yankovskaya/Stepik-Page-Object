@@ -5,6 +5,19 @@ class ProductPage(BasePage):
         def add_product_to_basket(self):
             self.browser.find_element(*ProductPageLocators.ADD_TO_CARD).click()
 
-        def check_product_name_and_price(self):
-            print("'{}' added to cart!".format(self.browser.find_element(*ProductPageLocators.PRODUCT_NAME).text))
-            assert self.browser.find_element(*ProductPageLocators.PRODUCT_PRICE).text in self.browser.find_element(*ProductPageLocators.PRICE_IN_BASKET).text
+        def get_product_name(self):
+            return self.browser.find_element(*ProductPageLocators.PRODUCT_NAME).text
+
+        def get_product_price(self):
+            return self.browser.find_element(*ProductPageLocators.PRODUCT_PRICE).text
+
+        def check_product_name_and_price(self, link):
+            name_in_basket = self.browser.find_elements(*ProductPageLocators.ALERT_PRODUCT_NAME)[0].text
+            price_in_basket = self.browser.find_elements(*ProductPageLocators.ALERT_PRICE_IN_BASKET)[2].text
+            try:
+                assert self.get_product_name() == name_in_basket
+                assert self.get_product_price() == price_in_basket
+            except AssertionError:
+                print(f"{link} ERrror")
+            else:
+                print("OK")
