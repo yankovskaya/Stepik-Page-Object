@@ -21,3 +21,11 @@ class ProductPage(BasePage):
                 print(f"{link} ERrror")
             else:
                 print("OK")
+
+        def should_not_be_success_message(self):
+            assert self.is_not_element_present(*ProductPageLocators.SUCCESS_MESSAGES), \
+            "FAILED!Success message is presented!"
+
+        def should_not_be_success_message_is_disappeared(self):
+            assert self.is_disappeared(*ProductPageLocators.SUCCESS_MESSAGES), \
+            "FAILED!Success message is presented!"
