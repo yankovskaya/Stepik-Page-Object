@@ -14,3 +14,4 @@ class ProductPageLocators():
     PRICE_IN_BASKET = (By.CSS_SELECTOR, ".basket-mini")
     ALERT_PRICE_IN_BASKET = (By.CSS_SELECTOR, '#messages .alert .alertinner strong')
     ALERT_PRODUCT_NAME = (By.CSS_SELECTOR, '#messages .alert .alertinner strong')
+    SUCCESS_MESSAGES = (By.CSS_SELECTOR, "#messages .alert .alertinner")
